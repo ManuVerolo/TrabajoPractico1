@@ -93,3 +93,33 @@ li {
 .circulo.blanco{
   background: lightgray;
 }
+
+.descripcion{
+  margin: 20px 0 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  background: #efefef;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+p{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+}
+
+footer{
+  padding: 19px 14px;
+  margin-top: 40px;
+  border-top: 1px solid #CAC3C3;
+  background-color: white;
+}
+
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+  padding: 11px;
+  font-size: 12px;
+  margin-left: 200px;
+}
