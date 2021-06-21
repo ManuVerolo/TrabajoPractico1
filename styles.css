@@ -49,21 +49,21 @@ li {
   margin-left: auto;
   margin-right: auto;
 }
-#game {
+.game {
   border: 5px solid #999999;
   height: 100%;
   position: relative;
   height: 480px;
 }
-#game .cuadrado {
+.game .cuadrado {
   height: 60px;
   width: 60px;
   float: left;
 }
-#game .cuadrado.blanco{
+.game .cuadrado.blanco{
     background-color: white;
 }
-#game .cuadrado.negro{
+.game .cuadrado.negro{
     background-color: black;
 }
 .boton{
@@ -79,18 +79,18 @@ li {
   border-radius: 9px;
   
 }
-.circulo{
+/* .circulo{
     width: 55px;
     height: 55px;
     border-radius: 50%;
     margin: auto;
     margin-top: 2px;
-}
+} */
 
-.circulo.rojo{
+.piezaRoja{
   background-image: url(img/PieceRed.png);
 }
-.circulo.blanco{
+.piezaBlanca{
   background-image: url(img/PieceWhite.png);
 }
 
