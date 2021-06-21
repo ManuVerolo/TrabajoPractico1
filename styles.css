@@ -88,10 +88,10 @@ li {
 }
 
 .circulo.rojo{
-  background: rgba(253, 104, 104, 0.897);
+  background-image: url(img/PieceRed.png);
 }
 .circulo.blanco{
-  background: lightgray;
+  background-image: url(img/PieceWhite.png);
 }
 
 .descripcion{
