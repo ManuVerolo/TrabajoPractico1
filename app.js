@@ -60,14 +60,24 @@ window.onload = function(){
 
     function handleCellClick(clickedEvent){
         const clickedCell = clickedEvent.target //Almacena el objeto html
-        if(clickedCell.classList.contains('piezaBlanca')){
+        if(clickedCell.classList.contains('piezaBlanca') && currentPlayer === 'Blanco'){
             const clickedCellIndex = Array.from(clickedCell.parentNode.children).indexOf(clickedCell)
             console.log(clickedCellIndex)
-            if(stateGame[clickedCellIndex] !== 3 ){
-                alert("No es tu turno")
-            }
+            handlePlayerChange()
+        }else if(clickedCell.classList.contains('piezaRoja') && currentPlayer === 'Rojo'){
+            const clickedCellIndex = Array.from(clickedCell.parentNode.children).indexOf(clickedCell)
+            console.log(clickedCellIndex)
+            handlePlayerChange()
+        }else if (clickedCell.classList.contains('piezaRoja') && currentPlayer === 'Blanco'){
+            alert('No es tu turno')
+        }else if(clickedCell.classList.contains('piezaBlanca') && currentPlayer === 'Rojo'){
+            alert('No es tu turno')
         }
         console.log(clickedCell)
+    }
+    function handlePlayerChange() {
+        currentPlayer = currentPlayer === "Rojo" ? "Blanco" : "Rojo"
+        handleStatusDisplay(CURRENT_PLAYER_TURN())
     }
 }
 
