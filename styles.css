@@ -6,6 +6,9 @@ body {
   background-color: #D4707A;
   overflow: hidden;
 }
+h2{
+ text-align: center;
+}
 ul {
   margin-left: 150px;
 }
@@ -123,3 +126,4 @@ footer{
   font-size: 12px;
   margin-left: 200px;
 }
+

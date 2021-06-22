@@ -1,5 +1,5 @@
 window.onload = function(){
- 
+    
     var stateGame = [
         [0, 2, 0, 2, 0, 2, 0, 2],
         [2, 0, 2, 0, 2, 0, 2, 0],
@@ -31,7 +31,43 @@ window.onload = function(){
                 piezaRoja.className = "cuadrado negro piezaRoja"
                 board.appendChild(piezaRoja) 
             }
+            
         })  
     })
+    
+    /////////TURNO JUGADOR/////////////
+    const STATUS_DISPLAY = document.querySelector('.game-notification')
+    CURRENT_PLAYER_TURN = () => `Turno del jugador: ${currentPlayer}`
+    var currentPlayer = 'Rojo'
+
+    /////////FUNCIONES/////////////
+    function main(){
+        handleStatusDisplay(CURRENT_PLAYER_TURN())
+        listeners()
+    }
+
+    main()
+
+    /////////MUESTRA TURNO JUGADOR ACTUAL/////////////
+    function handleStatusDisplay(message){
+        STATUS_DISPLAY.innerHTML = message
+    }
+   
+    /////////DETECTAR QUE CELDA DIO CLICK/////////////
+    function listeners(){
+        document.querySelector('.game').addEventListener('click', handleCellClick)
+    }
+
+    function handleCellClick(clickedEvent){
+        const clickedCell = clickedEvent.target //Almacena el objeto html
+        if(clickedCell.classList.contains('piezaBlanca')){
+            const clickedCellIndex = Array.from(clickedCell.parentNode.children).indexOf(clickedCell)
+            console.log(clickedCellIndex)
+            if(stateGame[clickedCellIndex] !== 3 ){
+                alert("No es tu turno")
+            }
+        }
+        console.log(clickedCell)
+    }
 }
 
