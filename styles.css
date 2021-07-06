@@ -108,12 +108,6 @@ li {
     margin-top: 2px;
 } */
 
-.piezaRoja{
-  background-image: url(img/PieceRed.png);
-}
-.piezaBlanca{
-  background-image: url(img/PieceWhite.png);
-}
 
 .descripcion{
   margin: 20px 0 10px 0;
@@ -143,78 +137,3 @@ footer{
   padding: 11px;
   font-size: 12px;
   margin-left: 200px;
-/*#arrastar {
-	position: absolute;
-	width: 100px;
-	height: 100px;
-	margin: 10px 10px 10px 10px;
-	background: #FF5500;
-	text-align: center;
-	color: #fff;
-	border-radius: 50px;
-}
-
-#soltar {
-	position: absolute;
-	margin: 100px 10px 10px 600px;
-	width: 200px;
-	height: 200px;
-	background: #777777;
-	color: #fff;
-	text-align: center;
-	border-radius: 50px;
-}
-
-
-.row {
-	display: inline-block;
-}
-
-.col-black {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background-color: rgb(0, 0, 0);
-}
-
-.col-white {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background-color: white;
-}
-
-.fichaBlanca {
-	position: absolute;
-	width: 35px;
-	height: 35px;
-	background-color: white;
-	margin-top: 10px;
-  margin-left: 6px;
-  border-radius: 25px;
-  border: 1px solid black;
-  -webkit-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-	box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-}
-
-.fichaRoja {
-	position: absolute;
-	width: 35px;
-	height: 35px;
-	background-color: red;
-	margin-top: 10px;
-  margin-left: 6px;
-  border-radius: 25px;
-  border: 1px solid black;
-  -webkit-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-	box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
-}
-
-.king.fichaRoja{
-  background-color: yellow;
-}
-.king.fichaBlanca{
-  background-color: blue;
-}
