@@ -137,3 +137,51 @@ footer{
   padding: 11px;
   font-size: 12px;
   margin-left: 200px;
+}
+
+@media (max-width: 1024px) {
+
+  .row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+
+  .row {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  #juego-damas {
+    width: 100%;
+    padding: 0px;
+  }
+
+  aside#menu-tablero {
+    width: 500px;
+    margin: auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    background: #4e94ab;
+    width: 70%;
+    margin-left: -70%;
+    transition: all 0.5s;
+  }
+  .menu ul {
+    flex-direction: column;
+  }
+  .menu li {
+    border-top: 1px solid #fff;
+  }
+
+  #btn-menu:checked ~ .menu {
+    margin: 0;
+  }
+}
