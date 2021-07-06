@@ -1,6 +1,107 @@
-window.onload = function(){
+var turnoJugador = 0;
+var posicionMarcada = "ninguna";
+var mensaje = "";
+var ArrayInicial = [
+    [0,1,0,1,0,1,0,1],
+    [1,0,1,0,1,0,1,0],
+    [0,1,0,1,0,1,0,1],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [2,0,2,0,2,0,2,0],
+    [0,2,0,2,0,2,0,2],
+    [2,0,2,0,2,0,2,0],
+];
+
+var puntosJugador1 = 0;
+var puntosJugador2 = 0;
+
+//Parametro proximo turno Jugador
+var turnoJugador = 1;
+
+var marcoTablero = document.getElementById('tablero-marco');
+//listener en casilla del tablero
+marcoTablero.addEventListener('click', e => { seleccionCelda(e)})
+
+var seleccionCelda = e => {
+    //Selecciona una ficha blanca
+    if (e.target.classList.contains('ficha-blanca')){          
+        if (turnoJugador == 1) {
+            if(e.target.classList.contains('casilla-seleccionada') !== true){
+                e.target.classList.add("casilla-seleccionada");
+                if (posicionMarcada !== "ninguna") {
+                    var casillaDesmarca = document.getElementById(posicionMarcada);
+                    casillaDesmarca.classList.remove("casilla-seleccionada");
+                }
+            }
+            posicionMarcada = e.target.id;                       
+        } else if (turnoJugador == 2) {                          
+            mensaje = "No es tu turno";
+            window.alert(mensaje);
+        }
+
+    } else if (e.target.classList.contains('ficha-negra')){    
+        if (turnoJugador == 2) {
+            if(e.target.classList.contains('casilla-seleccionada') !== true){
+                e.target.classList.add("casilla-seleccionada");
+                if (posicionMarcada !== "ninguna") {
+                    var casillaDesmarca = document.getElementById(posicionMarcada);
+                    casillaDesmarca.classList.remove("casilla-seleccionada");
+                }
+            }
+            posicionMarcada = e.target.id;    
+            //Si no es el turno correspondiente                   
+        } else if (turnoJugador == 1) {                          
+            mensaje = "No es tu turno";
+            window.alert(mensaje);
+        }
+    } else {                                            
+        if (posicionMarcada !== "ninguna") {            
+            var casillaDesmarca = document.getElementById(posicionMarcada);
+            if ( casillaDesmarca.classList.contains('ficha-blanca') 
+                    && turnoJugador == 1 
+                    && casillaValida('blancas', posicionMarcada, e.target.id)) { 
+                e.target.classList.add("ficha-blanca");     
+                casillaDesmarca.classList.remove("ficha-blanca");  
+                casillaDesmarca.classList.remove("casilla-seleccionada"); 
+                posicionMarcada = e.target.id;                    
+                turnoJugador = 2;
+                handlePlayerChange()
+                //Seleccion ficha roja       
+            }else if(casillaDesmarca.classList.contains('ficha-negra') 
+                    && turnoJugador == 2 
+                    && casillaValida('negras', posicionMarcada, e.target.id) ) {
+                e.target.classList.add("ficha-negra"); 
+                casillaDesmarca.classList.remove("ficha-negra");  
+                casillaDesmarca.classList.remove("casilla-seleccionada"); 
+                turnoJugador = 1; 
+                posicionMarcada = e.target.id; 
+               handlePlayerChange()                     
+            }
+        }
+    }
+}
     
-    var stateGame = [
+    const STATUS_DISPLAY = document.querySelector('.game-notification')
+    CURRENT_PLAYER_TURN = () => `Turno del jugador: ${turnoJugador}`
+
+
+    function main(){
+        handleStatusDisplay(CURRENT_PLAYER_TURN())
+    }
+
+    main()
+
+    ///////MUESTRA TURNO JUGADOR ACTUAL EN EL DISPLAY/////////////
+    function handleStatusDisplay(message){
+        STATUS_DISPLAY.innerHTML = message
+    }
+
+    function handlePlayerChange() {
+        turnoJugador = turnoJugador === 2 ? 2 : 1
+        handleStatusDisplay(CURRENT_PLAYER_TURN())
+    }
+
+    /*var stateGame = [
         [0, 2, 0, 2, 0, 2, 0, 2],
         [2, 0, 2, 0, 2, 0, 2, 0],
         [0, 2, 0, 2, 0, 2, 0, 2],
@@ -31,29 +132,14 @@ window.onload = function(){
                 piezaRoja.className = "cuadrado negro piezaRoja"
                 board.appendChild(piezaRoja) 
             }
-            
         })  
     })
     
-    /////////TURNO JUGADOR/////////////
-    const STATUS_DISPLAY = document.querySelector('.game-notification')
-    CURRENT_PLAYER_TURN = () => `Turno del jugador: ${currentPlayer}`
-    var currentPlayer = 'Rojo'
 
-    /////////FUNCIONES/////////////
-    function main(){
-        handleStatusDisplay(CURRENT_PLAYER_TURN())
-        listeners()
-    }
 
-    main()
 
-    /////////MUESTRA TURNO JUGADOR ACTUAL/////////////
-    function handleStatusDisplay(message){
-        STATUS_DISPLAY.innerHTML = message
-    }
    
-    /////////DETECTAR QUE CELDA DIO CLICK/////////////
+    ///////DETECTAR QUE CELDA DIO CLICK/////////////
     function listeners(){
         document.querySelector('.game').addEventListener('click', handleCellClick)
     }
@@ -72,12 +158,14 @@ window.onload = function(){
             alert('No es tu turno')
         }else if(clickedCell.classList.contains('piezaBlanca') && currentPlayer === 'Rojo'){
             alert('No es tu turno')
+        }else{
         }
-        console.log(clickedCell)
     }
-    function handlePlayerChange() {
-        currentPlayer = currentPlayer === "Rojo" ? "Blanco" : "Rojo"
-        handleStatusDisplay(CURRENT_PLAYER_TURN())
-    }
-}
 
+
+*/
+
+
+
+
+    

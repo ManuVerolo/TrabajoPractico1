@@ -7,7 +7,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
     <!-- SCRIPTS -->
-    <script src="app.js"></script>
+
+    <script src="minidamas.js"></script>
     <title>Mini Damas</title>
   </head>
   <body>
@@ -28,144 +29,32 @@
     </article>
     <h2 class="game-notification"></h2>
     <article>
-        <div class="tablero">
-            <div class="tablero-2">
-                <div class="game" id="board">
-                    <!-- <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaBlanca">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado blanco">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div>
-                    <div class="cuadrado  negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div>
-                    <div class="cuadrado negro piezaRoja">
-                    </div>
-                    <div class="cuadrado  blanco">
-                    </div> -->
-                </div>
+      <div id="tablero">
+        <div class="row">
+          <div id="juego-damas">
+            <table id="tablero-marco">
+
+            </table>
+          </div>
+          <aside id="menu-tablero">
+            <h2>Resumen juego</h2>
+            <div class="puntajes">
+              <h3>Blancas</h3>
+              <input type="text" id="puntos1" class="jugador-puntaje">
             </div>
-            <!-- Botón -->
-            <button class="boton">
-                Nueva partida
-            </button>
-            <!-- endboton  -->
+            <div class="puntajes">
+              <h3>Rojas</h3>
+              <input type="text" id="puntos2" class="jugador-puntaje">
+            </div>
+            <h3 id="turno-jugador"></h3>
+          </aside>
+        </div>
+      </div>
+              
+      <button class="boton" id="boton-nueva-partida" onclick="cargar_tableroNuevo();">
+          Nueva partida
+      </button>
+      <!-- endboton  -->
         </div>
     </article>
     <article>
@@ -181,4 +70,10 @@
     <p><strong>minidamas.com 2021</strong> - Juega a las damas online -  <a href="">Contacto</a></p> 
   </div>
 </footer>
+ <!-- archivo de scripts JS para la carga inicial -->
+ <script type="text/javascript" src="app.js">
+ </script>
+<script>
+  cargar_tablero();
+</script>
 </html>
